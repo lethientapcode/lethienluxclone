@@ -292,7 +292,7 @@
   right: 34px;
   box-shadow: 0 0 1px;
   width: 458px;
-  height: 152px;
+  height: auto;
   background: var(--white-color);
   z-index: 12;
   display: none;
