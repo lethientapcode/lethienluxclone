@@ -184,6 +184,16 @@
     min-width: 100%;
     margin: 0 auto;
   }
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .col {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .s-0 {
     display: none;
   }

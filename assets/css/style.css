@@ -18,7 +18,6 @@
   height: 6.8rem;
   background-color: #f2f2f2;
   border-radius: 50%;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,13 +35,13 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: 4.7rem;
+  height: 5rem;
   padding: 1rem 1.6rem;
 
   border-radius: 3px;
 }
 
-.header-search::after {
+/* .header-search::after {
   content: "";
   height: 50%;
   width: 1px;
@@ -51,7 +50,7 @@
   top: 50%;
   transform: translateY(-50%);
   right: 55%;
-}
+} */
 
 .header-search .header-search-icon {
   font-size: 1.4rem;
@@ -68,10 +67,59 @@
   font-weight: 600;
   letter-spacing: 0.02rem;
   line-height: 1.5;
-
   color: var(--text-color);
 }
 
+.header-search-history {
+  width: 60rem;
+  height: 30rem;
+  background-color: var(--white-color);
+  box-shadow: 0 0 3px;
+  margin-top: 1rem;
+  border-radius: 3px;
+  overflow-y: scroll;
+  display: none;
+}
+
+.header-search-history.show {
+  display: block;
+}
+.header-search-history::-webkit-scrollbar {
+  display: none;
+}
+
+.header-search-history .header-search-history-heading {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 2.1rem;
+  padding-top: 0.6rem;
+}
+
+.header-search-history .header-search-history-item {
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  margin: 1rem 0;
+}
+
+.header-search-history-sub {
+  font-size: 1.6rem;
+  padding-bottom: 1rem;
+  font-weight: 600;
+}
+
+.header-search-history-num-stay {
+  font-size: 1.2rem;
+}
+
+.header-search-history-item .header-search-history-img {
+  height: 6rem;
+  width: 6rem;
+  object-fit: cover;
+  border-radius: 5px;
+}
 .header .header-list {
   list-style: none;
   display: flex;
@@ -83,6 +131,109 @@
 .header-date,
 .guest-number {
   line-height: 5rem;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 3px;
+  line-height: 4.8rem;
+}
+
+.guest-number {
+  position: relative;
+}
+
+.guest-list {
+  width: 31rem;
+  height: 23rem;
+  box-shadow: 0 0 1px;
+  background-color: var(--white-color);
+  position: absolute;
+  right: 0;
+  top: 58px;
+  border-radius: 3px;
+  box-shadow: 0 0 3px;
+  display: none;
+}
+
+.guest-list.show {
+  display: block;
+}
+
+.guest-item {
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: default;
+}
+
+.guest-item .age {
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.guest-item .subtraction {
+  cursor: no-drop;
+  background-color: #fafbfc;
+  border: 1px solid #f4f5f6;
+  color: #a5a1a1;
+}
+
+.sum {
+  cursor: pointer;
+  border: 1px solid;
+}
+
+.sum:hover {
+  color: #f65e39;
+  transition: 0.3s;
+}
+
+.person {
+  font-size: 1.6rem;
+}
+.wrap-caculate {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.guest-item .calculate {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  line-height: 4rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.subtraction {
+  margin-right: 2rem;
+}
+
+.num {
+  margin-right: 2rem;
+  font-size: 1.6rem;
+}
+
+.guest-list-decision {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  cursor: default;
+}
+
+.guest-list-decision .guest-list-check,
+.guest-list-decision .guest-list-delete {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.guest-list-decision .guest-list-check:hover {
+  color: #f65e39;
+  transition: 0.3s;
 }
 
 .header-date::before {
@@ -93,7 +244,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 66.4%;
+  right: 65.6%;
+  z-index: -10;
 }
 
 .header-date::after {
@@ -104,7 +256,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 55%;
+  right: 53.8%;
+  z-index: -10;
 }
 
 .header-date .header-calendar-icon,
@@ -135,29 +288,48 @@
 
 .header-price-info {
   position: absolute;
-  top: 68px;
+  top: 7.2rem;
   right: 34px;
-  box-shadow: 0 0 5px;
+  box-shadow: 0 0 1px;
   width: 458px;
   height: 152px;
   background: var(--white-color);
-  z-index: 1;
+  z-index: 12;
+  display: none;
+}
+
+.header-price-info.show {
+  display: block;
+}
+
+.header-price-info::before {
+  content: "";
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  top: -0.6rem;
+  right: 2rem;
+  background: var(--white-color);
+  transform: rotate(45deg);
+  box-shadow: 0 0 1px;
 }
 
 .header-price-info::after {
   content: "";
-  display: block;
   position: absolute;
-  height: 1.6rem;
-  width: 1.6rem;
-  top: -5px;
-  z-index: 2;
-  box-shadow: rgb(0 0 0 / 50%);
+  width: 3.1rem;
+  height: 2rem;
+  top: 0rem;
+  right: 1.4rem;
+  background: var(--white-color);
 }
 
 .header-price-info-content {
-  padding: 0 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  position: relative;
 }
+
 .header-price-info-wrap-flag {
   width: 100%;
   height: 100%;
@@ -174,11 +346,17 @@
 
 .header-price .header-price-text {
   margin-right: 6px;
+  user-select: none;
 }
 
 .header-price .header-price-icon {
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+.header-price-info {
+  transition: all 0.3s;
+  border-radius: 2px;
 }
 
 .header-price-info-item {
@@ -199,6 +377,45 @@
   padding: 0 12px;
   font-weight: 400;
 }
+.header-price-payment {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  top: -0.6rem;
+  right: 2rem;
+  background: var(--white-color);
+  transform: rotate(45deg);
+  box-shadow: 0 0 1px;
+  border-right: transparent;
+  border-bottom: transparent;
+}
+.header-price-payment-item p {
+  font-size: 1.6rem;
+  float: left;
+  padding-left: 1rem;
+}
+
+.header-price-payment-item p i {
+  font-size: 1rem;
+  margin-left: 0.8rem;
+}
+
+.header-price-payment-item p span {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.btn-menu {
+  display: none;
+}
+
 /* slider */
 
 .slider {
@@ -207,7 +424,6 @@
 
 .slider-container {
   width: 100%;
-  /* position: relative; */
 }
 
 .slider-wrap {
@@ -215,7 +431,6 @@
   height: 264px;
   display: flex;
   overflow: hidden;
-  /* align-items: center; */
   position: relative;
   margin-bottom: 5rem;
 }
@@ -301,7 +516,6 @@
   width: 100%;
   display: flex;
   align-items: center;
-
   position: relative;
 }
 
@@ -312,6 +526,11 @@
   cursor: pointer;
 }
 
+.attraction-slides .attraction-slide:hover {
+  opacity: 0.8;
+  transform: scale(1.01);
+  transition: all 0.3s;
+}
 .attraction-slides .attraction-slide img {
   width: 100%;
   height: 278px;
@@ -376,9 +595,18 @@
   border-radius: 10px;
 }
 
+.endow-item {
+  cursor: pointer;
+}
+.endow-item:hover {
+  opacity: 0.8;
+  transform: scale(1.01);
+  transition: all 0.3s;
+}
+
 /* suggestion */
 .suggestion {
-  margin-bottom: 5rem;
+  margin-bottom: 8rem;
 }
 .suggestion-container {
   width: 100%;
@@ -391,6 +619,12 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
+}
+
+.sug-item:hover img {
+  transform: scale(1.01);
+  opacity: 0.8;
+  transition: all 0.3s;
 }
 
 .sug-item img {
@@ -417,6 +651,65 @@
 .sug-next-btn.next-btn {
   top: 39%;
 }
+
+/* discovery */
+.discovery {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 7rem;
+}
+
+.discovery .discovery-item {
+  width: 100%;
+  height: 240px;
+  position: relative;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.discovery .discovery-item:hover {
+  opacity: 0.8;
+  transform: scale(1.01);
+  transition: all 0.3s;
+}
+
+.discovery .discovery-item img {
+  height: 240px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.discovery-info {
+  position: absolute;
+  left: 1.2rem;
+  top: 10%;
+  width: 20rem;
+  height: 2.3rem;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.discovery-info span {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--white-color);
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.discovery-sub {
+  position: absolute;
+  bottom: 5%;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--white-color);
+}
 /* instruct */
 .instruct-container {
   height: 228px;
@@ -432,6 +725,12 @@
   object-fit: cover;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.instruct-img:hover {
+  transform: scale(1.01);
+  opacity: 0.8;
+  transition: all 0.3s;
 }
 
 /* App */
@@ -587,4 +886,18 @@
 .footer-bottom p {
   text-align: center;
   color: #999;
+}
+
+.show-out-line {
+  border: 1px solid;
+  box-shadow: 0 0px 1px;
+  z-index: 10;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }

@@ -24,6 +24,13 @@ html {
   text-align: right;
 }
 
+.text-cen {
+  text-align: center;
+}
+.hide-on-pc {
+  display: none;
+}
+
 .header-text {
   font-size: 1.3rem;
   font-weight: 600;
@@ -48,4 +55,7 @@ html {
 .text-heading {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+}
+.p-0 {
+  padding: 0;
 }
