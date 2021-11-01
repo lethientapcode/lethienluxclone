@@ -1,4 +1,7 @@
 @media (max-width: 740px) {
+  body {
+    padding: 0 8px;
+  }
   body .hide-on-mobile {
     display: none;
   }
@@ -196,7 +199,7 @@
   }
 
   .attraction .attraction-slides .attraction-slide img {
-    height: 150px;
+    height: 100%;
     width: 100%;
   }
 
@@ -209,9 +212,18 @@
   } */
 
   /* EnDow */
+  .endow {
+    margin-bottom: 4rem;
+  }
   .endow .endow-container {
     overflow-x: auto;
     height: auto;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+
+  .endow .endow-container img {
+    width: 95%;
   }
 
   .endow .endow-container::-webkit-scrollbar {
@@ -230,6 +242,11 @@
 
   .endow-container .endow-item {
     margin-top: 2rem;
+  }
+  .endow-more-btn-mobile {
+    display: block;
+    text-decoration: none;
+    color: #f65e39;
   }
 
   /* Suggestion */
@@ -283,16 +300,18 @@
   body .app {
     height: auto;
   }
+  .app .app-logo {
+    margin-bottom: 2rem;
+  }
 
-  .app .app-qr-code {
-    width: 150px;
-    height: 150px;
+  .app .app-right {
+    margin-top: 2rem;
   }
 
   .app .app-link-download {
-    width: 90%;
+    width: 50%;
     margin: 20px;
-    height: 70px;
+    height: 60%;
     object-fit: cover;
     border-radius: 15px;
   }
