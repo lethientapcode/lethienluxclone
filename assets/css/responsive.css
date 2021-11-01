@@ -163,18 +163,18 @@
     margin-top: calc(-3rem + var(--height-header));
   }
   .slider-container .slider-wrap {
-    height: 80px;
+    height: 120px;
   }
   .slider-slide {
-    height: 80px;
+    height: 120px;
   }
 
   .slider-container .slider-slide .slider-img {
-    height: 80px;
+    height: 120px;
   }
 
   .slider-slide.active {
-    height: 80px;
+    height: 120px;
   }
 
   /* Attraction */
